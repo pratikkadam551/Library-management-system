@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{msg}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <span aria-hidden="true"> &times;</span>
+</div>
+{% endfor %}
+<div class=" col-12">
+<h5 class="alert alert-info my-3"> Welcome To The Library Management System </h5>
+{% if books %}
+<table class="p alert">
+    <thead >
+    <tr class="text-center a ">
+        <th style="width:2%" class="">ID</th>
+        <th style="width:28%">Title</th>
+        <th style="width:55%">Description</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+        <tr class="a text-center text-white">
+            <td>{{book.id}}</td>
+
+            <td>{{book.title}}</td>
+            <td>{{book.description}}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h4 class="text-center alert alert-warning"> No Records</h4>
+{% endif %}
+    </div>
+{% endblock content %}

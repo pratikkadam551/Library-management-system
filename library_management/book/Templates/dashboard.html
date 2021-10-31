@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for msg in messages %}
+{% for message in messages %}
+   <div class="alert alert-danger">
+         {{message}}
+   </div>
+{% endfor %}
+{% endfor %}
+<div class=" col-12">
+<marquee behavior="alternate" scrollamount="15 sec"> <h2 class="text-center my-2 pk alert">Dashboard Page</h2></marquee>
+<a href="/addpost" class="btn btn-success " >ADD Books</a>
+<h4 class="alert alert-info my-3"> Show Books Information </h4>
+{% if books %}
+<table class="p alert">
+    <thead >
+    <tr class="text-center a ">
+        <th style="width:2%" class="">ID</th>
+        <th style="width:28%">Title</th>
+        <th style="width:55%">Description</th>
+        <th style="width:15%"> Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+        <tr class="a text-center text-white">
+            <td>{{book.id}}</td>
+
+            <td>{{book.title}}</td>
+            <td>{{book.description}}</td>
+            <td class="text-center">
+                <a href="{% url 'updatepost' book.id %}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="{% url 'deletepost' book.id %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-danger btn-sm my-1" value="Delete">
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h4 class="text-center alert alert-warning"> No Records</h4>
+{% endif %}
+    </div>
+{% endblock content %}

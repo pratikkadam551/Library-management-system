@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body{
+           background-color:rgb(75,74,74);
+           color:antiquewhite;
+        }
+        .box {
+             background-color:gray;
+             padding:20px;
+             left-margin:0px;
+        }
+        .form-group{
+             color:gry;
+             }
+        .pk{ color:red;
+            }
+        .p{
+           background-color:purple;
+
+           }
+        .a{
+           color:white;
+           border:solid 1px red;
+           }
+        .about{
+        color:orange;
+
+    </style>
+<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">-->
+<!--      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>-->
+
+</head>
+<body>
+
+<div class="row">
+  {% include 'navbar.html' %}
+</div>
+<div class="container">
+  <div class="row">
+      <div class="col sm-12">
+          {% block msg %}
+          {% endblock msg %}
+
+      </div>
+  </div>
+    <div class="row container-fluid my-2">
+        {% block content %}
+        {% endblock content %}
+
+    </div>
+</div>
+</body>
+</html>

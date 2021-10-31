@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+   <div class="row my-2">
+{% for msg in messages %}
+    <span class="alert alert-success">{{msg}}</span>
+    {% endfor %}
+        </div>
+<div class="col-12 my-2">
+
+            <h3 class="text-center pk "> Dashboard/Update post </h3>
+<form action="" method="POST" novalidate>
+    {% csrf_token %}
+    {{update.as_p}}
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="/dashboard" class="btn btn-danger">Cancel </a>
+</form>
+
+</div>
+{% endblock content %}
